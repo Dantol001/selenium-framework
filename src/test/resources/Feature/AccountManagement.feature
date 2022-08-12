@@ -12,6 +12,20 @@ Feature: Account Management
       | firstname | lastname | email               | password    | confirmpassword |
       | Olu       | Bayo     | olubayo@hotmail.com | Olubayo2090 | Olubayo2090     |
 
+  @CreateAccount-Duplicate
+  Scenario Outline: Create an account - Duplicate account creation not allowed
+    Given User is on create an account page
+    When User enters "<firstname>" "<lastname>" "<email>" "<password>" "<confirmpassword>"
+    And User clicks on create an account
+    Then Error message should be displayed that account already exist
+
+    Examples:
+      | firstname | lastname | email               | password    | confirmpassword |
+      | Olu       | Bayo     | olubayo@hotmail.com | Olubayo2090 | Olubayo2090     |
+
+
+
+
 
 
   @SignIn-AccountLogin
